@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthenticateRequest;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function login(): View|Factory|Application
     {
-        return view('login.login');
+        return view('login.login', [
+            'formAction' => route('authenticate'),
+            'formMethod' => 'POST',
+            'oldEmail' => old('email'),
+        ]);
     }
     public function logout()
     {
@@ -22,9 +29,10 @@ class LoginController extends Controller
      */
     public function authenticate(AuthenticateRequest $request): RedirectResponse
     {
-        $credentials = $request->validated();
+        $email = $request->validated('email');
+        $password = $request->validated('password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');

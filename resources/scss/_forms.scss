@@ -1,0 +1,38 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .alert {
+        flex: 0 1 40%;
+        color: red;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    form {
+        flex: 0 1 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        .form-inner {
+            width: 40%;
+            display: flex;
+            flex-wrap: wrap;
+
+            > * {
+                flex: 0 1 100%;
+            }
+        }
+    }
+
+    .form-input {
+        padding: 5px 10px;
+        margin-bottom: 20px;
+    }
+}

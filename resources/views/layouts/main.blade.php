@@ -5,8 +5,8 @@
 </head>
 
 <body id="cdp-app-body">
+@include('header.main-header')
 <div id="app">
-    test
     @yield('content')
 </div>
 

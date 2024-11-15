@@ -1,4 +1,8 @@
 @extends('layouts.main')
 @section('content')
-   login page
+    @include('login.login-form', [
+     'formAction' => $formAction,
+     'formMethod' => $formMethod,
+     'oldEmail' => $oldEmail,
+     ])
 @endsection
