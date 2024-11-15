@@ -7,18 +7,24 @@ use App\Models\Client;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 
 class AdvisorController extends Controller
 {
     const ERROR_BAG = 'advisor';
 
-    public function dashboard()
+    public function dashboard(): View|Factory|Application
     {
-        return view('advisor.dashboard');
+        return view('advisor.dashboard',[
+            'viewClientsRoute' => route('advisor.clients.list'),
+            'viewReportRoute' => '',
+        ]);
     }
 
-    public function clients()
+    public function clients(): View|Factory|Application
     {
+
         return view('advisor.client.clients');
     }
 
@@ -31,7 +37,7 @@ class AdvisorController extends Controller
         ]);
     }
 
-    public function storeClient(StoreClientRequest $request)
+    public function storeClient(StoreClientRequest $request): Application|Redirector|RedirectResponse
     {
         Client::updateOrCreate($request->validated());
 
