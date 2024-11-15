@@ -3,15 +3,20 @@
     justify-content: center;
     flex-wrap: wrap;
 
-    .alert {
-        flex: 0 1 40%;
-        color: red;
+    &.logout-form {
+        display: inline-block;
+        flex: 0 1 100px;
 
-        ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px;
+        form {
+            .form-inner {
+                width: 100%;
+            }
         }
+    }
+
+    .alert {
+        color: red;
+        font-size: 12px;
     }
 
     form {
@@ -31,8 +36,14 @@
         }
     }
 
+    .form-field {
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
     .form-input {
         padding: 5px 10px;
-        margin-bottom: 20px;
+        flex: 0 1 100%;
     }
 }

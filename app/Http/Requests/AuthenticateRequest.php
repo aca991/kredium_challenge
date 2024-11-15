@@ -2,10 +2,13 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AuthenticateRequest extends FormRequest
 {
+    protected $errorBag = LoginController::ERROR_BAG;
+
     /**
      * Get the validation rules that apply to the request.
      *

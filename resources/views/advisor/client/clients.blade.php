@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <div class="content-container">
-        dashboard
+        <h1>Clients</h1>
+
     </div>
 @overwrite

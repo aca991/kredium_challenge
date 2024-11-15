@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    const ERROR_BAG = 'login';
+
     public function login(): Factory|Application|View|RedirectResponse
     {
         if (Auth::check()) {
@@ -22,6 +24,7 @@ class LoginController extends Controller
             'formAction' => route('authenticate'),
             'formMethod' => 'POST',
             'oldEmail' => old('email'),
+            'errorBag' => self::ERROR_BAG,
         ]);
     }
 
@@ -52,6 +55,6 @@ class LoginController extends Controller
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        ], self::ERROR_BAG)->onlyInput('email');
     }
 }
