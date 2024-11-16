@@ -7,6 +7,7 @@
          'formAction' => $formAction,
          'formMethod' => $formMethod,
          'errorBag' => $errorBag,
+         'client' => $client,
          ])
     </div>
 @overwrite

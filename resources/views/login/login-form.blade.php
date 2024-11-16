@@ -8,6 +8,7 @@
         'type' => 'email',
         'name' => 'email',
         'errorBag' => $errorBag,
+        'value' => !empty($oldEmail) ? $oldEmail : ''
     ])
 
     @include('forms.fields.form-field-input', [

@@ -27,27 +27,20 @@ class ClientController extends Controller
         ]);
     }
 
-    public function createClient(): View|Factory|Application
+    public function clientForm(Client $client = null): View|Factory|Application
     {
-        return view('client.create-client', [
+        // TODO display old data
+        return view('client.create-form-page', [
             'formAction' => route('client.store'),
             'formMethod' => 'POST',
             'errorBag' => self::ERROR_BAG,
-        ]);
-    }
-
-    public function editClient(Client $client): View|Factory|Application
-    {
-        return view('client.create-client', [
-            'formAction' => route('client.store'),
-            'formMethod' => 'POST',
-            'errorBag' => self::ERROR_BAG,
+            'client' => $client,
         ]);
     }
 
     public function storeClient(StoreClientRequest $request): Application|Redirector|RedirectResponse
     {
-        $client = Client::updateOrCreate($request->validated());
+        $client = Client::updateOrCreate(['id' => $request->get('id')], $request->except(['id']));
 
         if (empty($client)) {
             return redirect(route('client.list'))->with('error', 'Client not saved');
@@ -57,10 +50,8 @@ class ClientController extends Controller
 
     }
 
-    public function deleteClient(Request $request, string $id): Application|Redirector|RedirectResponse
+    public function deleteClient(Client $client): Application|Redirector|RedirectResponse
     {
-        $client = Client::find($id);
-
         if (!$client->delete()) {
             return redirect(route('client.list'))->with('error', 'Client not deleted');
         }

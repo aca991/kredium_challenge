@@ -22,11 +22,11 @@ Route::get('/clients', [ClientController::class, 'clients'])
     ->name('client.list')
     ->middleware('auth');
 
-Route::get('/create-client', [ClientController::class, 'createClient'])
+Route::get('/create-client', [ClientController::class, 'clientForm'])
     ->name('client.create')
     ->middleware('auth');
 
-Route::get('/edit-client/id', [ClientController::class, 'editClient'])
+Route::get('/edit-client/{client}', [ClientController::class, 'clientForm'])
     ->name('client.edit')
     ->middleware('auth');
 
@@ -34,6 +34,6 @@ Route::post('/store-client/', [ClientController::class, 'storeClient'])
     ->name('client.store')
     ->middleware('auth');
 
-Route::post('/delete-client/{id}', [ClientController::class, 'deleteClient'])
+Route::post('/delete-client/{client}', [ClientController::class, 'deleteClient'])
     ->name('client.delete')
     ->middleware('auth');

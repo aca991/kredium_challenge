@@ -17,9 +17,10 @@ class StoreClientRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => ['nullable', 'numeric'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['nullable', 'unique:clients', 'string', 'email', 'max:255', 'required_without:phone_number'],
+            'email' => ['nullable', 'unique:clients,email,' . $this->id . ',id', 'string', 'email', 'max:255', 'required_without:phone_number'],
             'phone_number' => ['nullable', 'string', 'max:255', 'required_without:email'],
         ];
     }
