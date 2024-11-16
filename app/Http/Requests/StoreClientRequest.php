@@ -2,12 +2,12 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Controllers\AdvisorController;
+use App\Http\Controllers\ClientController;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreClientRequest extends FormRequest
 {
-    protected $errorBag = AdvisorController::ERROR_BAG;
+    protected $errorBag = ClientController::ERROR_BAG;
 
     /**
      * Get the validation rules that apply to the request.

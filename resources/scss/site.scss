@@ -1,4 +1,5 @@
-@import "globals";
-@import "header";
-@import "forms";
-@import "dashboard";
+@use "globals";
+@use "header";
+@use "forms";
+@use "dashboard";
+@use "clients";

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdvisorController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,14 +18,18 @@ Route::get('/dashboard', [AdvisorController::class, 'dashboard'])
     ->name('advisor.dashboard')
     ->middleware('auth');
 
-Route::get('/clients', [AdvisorController::class, 'clients'])
-    ->name('advisor.clients.list')
+Route::get('/clients', [ClientController::class, 'clients'])
+    ->name('client.list')
     ->middleware('auth');
 
-Route::get('/create-client', [AdvisorController::class, 'createClient'])
-    ->name('advisor.client.create')
+Route::get('/create-client', [ClientController::class, 'createClient'])
+    ->name('client.create')
     ->middleware('auth');
 
-Route::post('/store-client', [AdvisorController::class, 'storeClient'])
-    ->name('advisor.client.store')
+Route::post('/store-client/{id?}', [ClientController::class, 'storeClient'])
+    ->name('client.store')
+    ->middleware('auth');
+
+Route::post('/delete-client/{id}', [ClientController::class, 'storeClient'])
+    ->name('client.delete')
     ->middleware('auth');

@@ -2,6 +2,20 @@ body {
     margin: 0;
 }
 
+.flash-message {
+    background-color: #8fff98;
+    color: white;
+
+    &.error {
+        background-color: #ff7b7b;
+    }
+
+    ul {
+        list-style: none;
+        padding: 15px 0;
+    }
+}
+
 a {
     text-decoration: none;
     color: #474646;
@@ -15,4 +29,28 @@ h1 {
 .content-container {
     padding-left: 40px;
     padding-right: 40px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.button-primary {
+    color: #fff;
+    background-color: #007bff;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+
+.entity-list {
+    width: 100%;
+
+    th, td {
+        padding: 15px 10px;
+        text-align: center;
+    }
 }

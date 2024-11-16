@@ -7,6 +7,7 @@
 <body id="cdp-app-body">
 @include('header.main-header')
 <div id="app">
+    @include('layouts.flash-messages')
     @yield('content')
 </div>
 
