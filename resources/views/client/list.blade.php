@@ -24,13 +24,16 @@
                 <tbody>
                 @foreach($clients as $client)
                     <tr>
-                        <td>First name</td>
-                        <td>Last name</td>
-                        <td>Email</td>
-                        <td>Phone</td>
-                        <td>Cash loan</td>
-                        <td>Home loan</td>
-                        <td></td>
+                        <td>{{ $client['first_name'] }}</td>
+                        <td>{{ $client['last_name'] }}</td>
+                        <td>{{ $client['email'] }}</td>
+                        <td>{{ $client['phone_number'] }}</td>
+                        <td>{{ $client['cash_loan'] }}</td>
+                        <td>{{ $client['home_loan'] }}</td>
+                        <td>
+                            <a href="{{ $client['edit_route'] }}">Edit</a>
+                            @include('client.deletion-form', ['formAction' => $client['delete_route'], 'formMethod' => 'POST'])
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

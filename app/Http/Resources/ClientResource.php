@@ -23,7 +23,7 @@ class ClientResource extends JsonResource
             'phone_number' => $this->phone_number,
             'cash_loan' => 'No', // TODO implement
             'home_loan' => 'No', // TODO implement
-            'edit_route' => route('client.store', $this->id),
+            'edit_route' => route('client.edit', $this->id),
             'delete_route' => route('client.delete', $this->id),
         ];
     }

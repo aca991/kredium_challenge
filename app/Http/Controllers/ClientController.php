@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 
 class ClientController extends Controller
@@ -35,6 +36,15 @@ class ClientController extends Controller
         ]);
     }
 
+    public function editClient(Client $client): View|Factory|Application
+    {
+        return view('client.create-client', [
+            'formAction' => route('client.store'),
+            'formMethod' => 'POST',
+            'errorBag' => self::ERROR_BAG,
+        ]);
+    }
+
     public function storeClient(StoreClientRequest $request): Application|Redirector|RedirectResponse
     {
         $client = Client::updateOrCreate($request->validated());
@@ -47,8 +57,10 @@ class ClientController extends Controller
 
     }
 
-    public function deleteClient(Client $client): Application|Redirector|RedirectResponse
+    public function deleteClient(Request $request, string $id): Application|Redirector|RedirectResponse
     {
+        $client = Client::find($id);
+
         if (!$client->delete()) {
             return redirect(route('client.list'))->with('error', 'Client not deleted');
         }
