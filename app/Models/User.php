@@ -61,11 +61,17 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * @return HasMany
+     */
     public function cashLoans(): HasMany
     {
         return $this->hasMany(CashLoan::class);
     }
 
+    /**
+     * @return HasMany
+     */
     public function homeLoans(): HasMany
     {
         return $this->hasMany(HomeLoan::class);

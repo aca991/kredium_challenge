@@ -32,11 +32,17 @@ class Client extends Model
         'phone_number',
     ];
 
+    /**
+     * @return HasOne
+     */
     public function cashLoan(): HasOne
     {
         return $this->hasOne(CashLoan::class);
     }
 
+    /**
+     * @return HasOne
+     */
     public function homeLoan(): HasOne
     {
         return $this->hasOne(HomeLoan::class);
