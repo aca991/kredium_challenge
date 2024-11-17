@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -14,6 +15,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
+ *
+ * @property CashLoan $cashLoan
+ * @property HomeLoan $homeLoan
  */
 class Client extends Model
 {
@@ -27,4 +31,14 @@ class Client extends Model
         'email',
         'phone_number',
     ];
+
+    public function cashLoan(): HasOne
+    {
+        return $this->hasOne(CashLoan::class);
+    }
+
+    public function homeLoan(): HasOne
+    {
+        return $this->hasOne(HomeLoan::class);
+    }
 }
