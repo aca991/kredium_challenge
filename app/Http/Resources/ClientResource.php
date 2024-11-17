@@ -21,8 +21,8 @@ class ClientResource extends JsonResource
             'last_name' => $this->last_name,
             'email' => $this->email,
             'phone_number' => $this->phone_number,
-            'cash_loan' => 'No', // TODO implement
-            'home_loan' => 'No', // TODO implement
+            'cash_loan' => $this->cashLoan()->exists() ? 'Yes' : 'No',
+            'home_loan' => $this->homeLoan()->exists() ? 'Yes' : 'No',
             'edit_route' => route('client.edit', $this->id),
             'delete_route' => route('client.delete', $this->id),
         ];
