@@ -4,7 +4,7 @@
         <h1>Report</h1>
         <div class="button-container">
             <a class="button-primary" href="{{ $dashboardRoute }}">Go back to dashboard</a>
-            <a class="button-primary" href="#">Export to csv</a>
+            <a class="button-primary" href="{{ $exportReportRoute }}">Export to csv</a>
         </div>
         @if(empty($reportProducts))
             No products for currently logged in advisor.

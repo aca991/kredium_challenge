@@ -22,6 +22,10 @@ Route::get('/report', [AdvisorController::class, 'report'])
     ->name('advisor.report')
     ->middleware('auth');
 
+Route::get('/export-report', [AdvisorController::class, 'exportReport'])
+    ->name('advisor.report.export')
+    ->middleware('auth');
+
 Route::get('/clients', [ClientController::class, 'clients'])
     ->name('client.list')
     ->middleware('auth');

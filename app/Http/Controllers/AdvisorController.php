@@ -26,7 +26,13 @@ class AdvisorController extends Controller
         $reportDataService = app(ReportDataService::class);
         return view('advisor.report',[
             'dashboardRoute' => route('advisor.dashboard'),
+            'exportReportRoute' => route('advisor.report.export'),
             'reportProducts' => $reportDataService->generateReportData(),
         ]);
+    }
+
+    public function exportReport()
+    {
+
     }
 }
