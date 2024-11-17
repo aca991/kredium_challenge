@@ -31,8 +31,8 @@
                         <td>{{ $client->cashLoan()->exists() ? 'Yes' : 'No' }}</td>
                         <td>{{ $client->homeLoan()->exists() ? 'Yes' : 'No' }}</td>
                         <td>
-                            <a href="{{ $client['edit_route'] }}">Edit</a>
-                            @include('client.list.deletion-form', ['formAction' => $client['delete_route'], 'formMethod' => 'POST'])
+                            <a href="{{ route('client.edit', ['client' => $client->id]) }}">Edit</a>
+                            @include('client.list.deletion-form', ['formAction' => route('client.delete', ['client' => $client->id]), 'formMethod' => 'POST'])
                         </td>
                     </tr>
                 @endforeach
