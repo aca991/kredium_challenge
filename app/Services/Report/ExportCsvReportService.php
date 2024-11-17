@@ -22,7 +22,7 @@ class ExportCsvReportService implements ExportReportService
      */
     public function export(array $reportProducts): bool
     {
-        // TODO improve report generation by moving it to async job
+        // TODO improve report generation by moving it to an async job
         // Generate file in chunks (fetch data in chunks accordingly)
         // Send report to advisor's email
         // Remove report file after it is sent
