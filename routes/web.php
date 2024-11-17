@@ -18,6 +18,10 @@ Route::get('/dashboard', [AdvisorController::class, 'dashboard'])
     ->name('advisor.dashboard')
     ->middleware('auth');
 
+Route::get('/report', [AdvisorController::class, 'report'])
+    ->name('advisor.report')
+    ->middleware('auth');
+
 Route::get('/clients', [ClientController::class, 'clients'])
     ->name('client.list')
     ->middleware('auth');

@@ -15,7 +15,14 @@ class AdvisorController extends Controller
     {
         return view('advisor.dashboard',[
             'viewClientsRoute' => route('client.list'),
-            'viewReportRoute' => '',
+            'viewReportRoute' => route('advisor.report'),
+        ]);
+    }
+
+    public function report(): View|Factory|Application
+    {
+        return view('advisor.report',[
+
         ]);
     }
 }
