@@ -28,8 +28,8 @@
                         <td>{{ $client->last_name }}</td>
                         <td>{{ $client->email }}</td>
                         <td>{{ $client->phone_number }}</td>
-                        <td>{{ $client->cash_loan }}</td>
-                        <td>{{ $client->home_loan }}</td>
+                        <td>{{ $client->cashLoan()->exists() ? 'Yes' : 'No' }}</td>
+                        <td>{{ $client->homeLoan()->exists() ? 'Yes' : 'No' }}</td>
                         <td>
                             <a href="{{ $client['edit_route'] }}">Edit</a>
                             @include('client.list.deletion-form', ['formAction' => $client['delete_route'], 'formMethod' => 'POST'])
