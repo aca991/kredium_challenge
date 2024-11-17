@@ -52,6 +52,8 @@ class ClientController extends Controller
             'formMethod' => 'POST',
             'errorBag' => self::ERROR_BAG,
             'client' => $client,
+            'clientsListRoute' => route('client.list'),
+            'isEdit' => false,
         ]);
     }
 
@@ -62,6 +64,8 @@ class ClientController extends Controller
             'formMethod' => 'POST',
             'errorBag' => self::ERROR_BAG,
             'client' => $client,
+            'clientsListRoute' => route('client.list'),
+            'isEdit' => true,
         ]);
     }
 
