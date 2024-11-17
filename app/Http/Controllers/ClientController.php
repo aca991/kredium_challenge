@@ -27,9 +27,36 @@ class ClientController extends Controller
         ]);
     }
 
-    public function clientForm(Client $client = null): View|Factory|Application
+    public function createForm(): View|Factory|Application
     {
-        // TODO display old data
+        /** @var Client $client */
+        $client = app(Client::class);
+        if (old('first_name')) {
+            $client->first_name = old('first_name');
+        }
+
+        if (old('last_name')) {
+            $client->last_name = old('last_name');
+        }
+
+        if (old('email')) {
+            $client->email = old('email');
+        }
+
+        if (old('phone_number')) {
+            $client->phone_number = old('phone_number');
+        }
+
+        return view('client.create-form-page', [
+            'formAction' => route('client.store'),
+            'formMethod' => 'POST',
+            'errorBag' => self::ERROR_BAG,
+            'client' => $client,
+        ]);
+    }
+
+    public function editForm(Client $client = null): View|Factory|Application
+    {
         return view('client.create-form-page', [
             'formAction' => route('client.store'),
             'formMethod' => 'POST',

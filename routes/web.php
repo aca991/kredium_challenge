@@ -22,11 +22,11 @@ Route::get('/clients', [ClientController::class, 'clients'])
     ->name('client.list')
     ->middleware('auth');
 
-Route::get('/create-client', [ClientController::class, 'clientForm'])
+Route::get('/create-client', [ClientController::class, 'createForm'])
     ->name('client.create')
     ->middleware('auth');
 
-Route::get('/edit-client/{client}', [ClientController::class, 'clientForm'])
+Route::get('/edit-client/{client}', [ClientController::class, 'editForm'])
     ->name('client.edit')
     ->middleware('auth');
 

@@ -2,7 +2,7 @@
 @section('form-action'){{ $formAction }}@overwrite
 @section('form-method'){{ 'POST' }}@overwrite
 @section('form-fields')
-    @if(!empty($client))
+    @if(!empty($client) && !empty($client->id))
         @include('forms.fields.form-field-input', [
           'type' => 'hidden',
           'name' => 'id',
@@ -15,7 +15,7 @@
        'type' => 'text',
        'name' => 'first_name',
        'errorBag' => $errorBag,
-       'value' => !empty($client) ? $client->first_name : '',
+       'value' => !empty($client) && $client->first_name ? $client->first_name : '',
    ])
 
     @include('forms.fields.form-field-input', [
@@ -23,7 +23,7 @@
        'type' => 'text',
        'name' => 'last_name',
        'errorBag' => $errorBag,
-       'value' => !empty($client) ? $client->last_name : '',
+       'value' => !empty($client) && $client->last_name ? $client->last_name : '',
    ])
 
     @include('forms.fields.form-field-input', [
@@ -31,7 +31,7 @@
        'type' => 'email',
        'name' => 'email',
        'errorBag' => $errorBag,
-       'value' => !empty($client) ? $client->email : '',
+       'value' => !empty($client) && $client->email ? $client->email : '',
    ])
 
     @include('forms.fields.form-field-input', [
@@ -39,7 +39,7 @@
        'type' => 'text',
        'name' => 'phone_number',
        'errorBag' => $errorBag,
-       'value' => !empty($client) ? $client->phone_number : '',
+       'value' => !empty($client) && $client->phone_number ? $client->phone_number : '',
    ])
 
     @include('forms.fields.form-field-button', [
