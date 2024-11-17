@@ -20,7 +20,7 @@ class LoginController extends Controller
     public function login(): Factory|Application|View|RedirectResponse
     {
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            return redirect()->route('advisor.dashboard');
         }
 
         return view('login.login', [
