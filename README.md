@@ -2,12 +2,12 @@
 
 ## Getting started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes using Laravel Sail.
 
 ### Prerequisites
 
+PHP and composer should be installed on your local machine.  
 Download and install [Docker](https://www.docker.com/get-started).
-This project is using Laravel Sail for local environment.
 
 Clone project:
 
@@ -32,12 +32,6 @@ To build Docker containers, run following commands:
 ```
 
 Open another terminal, and run following commands:
-```sh
-  ./vendor/bin/sail artisan migrate
-```
-```sh
-  ./vendor/bin/sail artisan db:seed
-```
 ```sh
   ./vendor/bin/sail npm install
 ```
