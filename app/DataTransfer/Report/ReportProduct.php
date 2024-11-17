@@ -5,9 +5,8 @@ namespace App\DataTransfer\Report;
 class ReportProduct
 {
     private string $type;
-    private float $amount;
-    private float $value;
-    private float $down_payment_amount;
+    private string $product_value;
+    private string $created_at;
 
     public function getType(): string
     {
@@ -19,33 +18,23 @@ class ReportProduct
         $this->type = $type;
     }
 
-    public function getAmount(): float
+    public function getProductValue(): string
     {
-        return $this->amount;
+        return $this->product_value;
     }
 
-    public function setAmount(float $amount): void
+    public function setProductValue(string $productValue): void
     {
-        $this->amount = $amount;
+        $this->product_value = $productValue;
     }
 
-    public function getValue(): float
+    public function getCreatedAt(): string
     {
-        return $this->value;
+        return $this->created_at;
     }
 
-    public function setValue(float $value): void
+    public function setCreatedAt(string $createdAt): void
     {
-        $this->value = $value;
-    }
-
-    public function getDownPaymentAmount(): float
-    {
-        return $this->down_payment_amount;
-    }
-
-    public function setDownPaymentAmount(float $down_payment_amount): void
-    {
-        $this->down_payment_amount = $down_payment_amount;
+        $this->created_at = $createdAt;
     }
 }

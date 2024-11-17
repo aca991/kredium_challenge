@@ -30,7 +30,7 @@ class ClientController extends Controller
         return view('client.list.list', [
             'dashboardRoute' => route('advisor.dashboard'),
             'createClientRoute' => route('client.create'),
-            'clients' => ClientResource::collection($clients)->resolve(),
+            'clients' => $clients,
         ]);
     }
 

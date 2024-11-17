@@ -3,36 +3,26 @@
     <div class="content-container">
         <h1>Report</h1>
         <div class="button-container">
+            <a class="button-primary" href="{{ $dashboardRoute }}">Go back to dashboard</a>
             <a class="button-primary" href="#">Export to csv</a>
         </div>
-        @if(empty($clients))
-            No clients stored in the system.
+        @if(empty($reportProducts))
+            No products for currently logged in advisor.
         @else
             <table class="entity-list">
                 <thead>
                 <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Cash loan</th>
-                    <th>Home loan</th>
-                    <th></th>
+                    <th>Product type</th>
+                    <th>Product value</th>
+                    <th>Creation date</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($clients as $client)
+                @foreach($reportProducts as $product)
                     <tr>
-                        <td>{{ $client['first_name'] }}</td>
-                        <td>{{ $client['last_name'] }}</td>
-                        <td>{{ $client['email'] }}</td>
-                        <td>{{ $client['phone_number'] }}</td>
-                        <td>{{ $client['cash_loan'] }}</td>
-                        <td>{{ $client['home_loan'] }}</td>
-                        <td>
-                            <a href="{{ $client['edit_route'] }}">Edit</a>
-                            @include('client.list.deletion-form', ['formAction' => $client['delete_route'], 'formMethod' => 'POST'])
-                        </td>
+                        <td>{{ $product->getType() }}</td>
+                        <td>{{ $product->getProductValue() }}</td>
+                        <td>{{ $product->getCreatedAt() }}</td>
                     </tr>
                 @endforeach
                 </tbody>
