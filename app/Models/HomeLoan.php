@@ -14,15 +14,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $client_id
  * @property string $created_at
  * @property string $updated_at
- * @property string $deleted_at
  *
  * @property User $user
  * @property Client $client
  */
 class HomeLoan extends Model
 {
-    use SoftDeletes;
-
     protected $table = 'home_loans';
 
     protected $fillable = [

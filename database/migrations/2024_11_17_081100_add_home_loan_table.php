@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('home_loans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->softDeletes();
             $table->decimal('value');
             $table->decimal('down_payment_amount');
             $table->unsignedBigInteger('user_id')

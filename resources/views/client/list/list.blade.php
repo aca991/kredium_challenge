@@ -32,7 +32,7 @@
                         <td>{{ $client['home_loan'] }}</td>
                         <td>
                             <a href="{{ $client['edit_route'] }}">Edit</a>
-                            @include('client.deletion-form', ['formAction' => $client['delete_route'], 'formMethod' => 'POST'])
+                            @include('client.list.deletion-form', ['formAction' => $client['delete_route'], 'formMethod' => 'POST'])
                         </td>
                     </tr>
                 @endforeach

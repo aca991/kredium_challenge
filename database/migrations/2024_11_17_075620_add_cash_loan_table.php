@@ -13,7 +13,6 @@ return new class extends Migration {
         Schema::create('cash_loans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->softDeletes();
             $table->decimal('amount');
             $table->unsignedBigInteger('user_id')
                 ->index('cash_loans_user_id_foreign_idx');

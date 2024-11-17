@@ -14,6 +14,9 @@ class LoginController extends Controller
 {
     const ERROR_BAG = 'login';
 
+    /**
+     * @return Factory|Application|View|RedirectResponse
+     */
     public function login(): Factory|Application|View|RedirectResponse
     {
         if (Auth::check()) {
@@ -28,6 +31,11 @@ class LoginController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return RedirectResponse
+     */
     public function logout(Request $request): RedirectResponse
     {
         Auth::logout();
@@ -40,14 +48,15 @@ class LoginController extends Controller
     }
 
     /**
-     * Handle an authentication attempt.
+     * @param AuthenticateRequest $request
+     *
+     * @return RedirectResponse
      */
     public function authenticate(AuthenticateRequest $request): RedirectResponse
     {
-        $email = $request->validated('email');
-        $password = $request->validated('password');
+        $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');

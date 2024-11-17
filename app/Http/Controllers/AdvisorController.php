@@ -8,6 +8,9 @@ use Illuminate\Foundation\Application;
 
 class AdvisorController extends Controller
 {
+    /**
+     * @return View|Factory|Application
+     */
     public function dashboard(): View|Factory|Application
     {
         return view('advisor.dashboard',[
