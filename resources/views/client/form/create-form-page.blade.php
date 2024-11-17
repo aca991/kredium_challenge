@@ -13,6 +13,7 @@
         @include('client.form.client-form', [
          'formAction' => $formAction,
          'formMethod' => $formMethod,
+         'isEdit' => $isEdit,
          'errorBag' => $errorBag,
          'client' => $client ?? null,
          ])
